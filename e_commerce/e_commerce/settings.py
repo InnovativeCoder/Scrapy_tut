@@ -21,9 +21,11 @@ NEWSPIDER_MODULE = 'e_commerce.spiders'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
-#Export as CSV Feed
-FEED_FORMAT = "csv"
-FEED_URI = "shopclues.csv"
+
+ITEM_PIPELINES = {
+  'scrapy.pipelines.images.ImagesPipeline': 1
+}
+IMAGES_STORE = 'tmp/images/'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
